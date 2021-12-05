@@ -1,0 +1,22 @@
+form {
+    background-color: blanchedalmond;
+    width: 200px;
+    border-radius: 5px;
+    flex: auto;
+    padding: 50px;
+}
+
+ul {
+    display:flexbox;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+label {
+
+    padding: 10px;
+}
