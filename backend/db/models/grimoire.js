@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   Grimoire.associate = function(models) {
     // associations can be defined here
     Grimoire.belongsTo(models.User, {foreignKey: 'userId'})
-    Grimoire.hasMany(models.spell, {foreignKey: 'grimoireId'})
+    Grimoire.hasMany(models.Spell, {foreignKey: 'grimoireId'})
   };
   return Grimoire;
 };
