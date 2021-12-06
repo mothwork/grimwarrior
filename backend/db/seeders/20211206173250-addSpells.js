@@ -26,6 +26,14 @@ module.exports = {
         content: "A spell when cast causes a sprig of plant matter to sing the last words spoke to it",
         updatedAt: new Date(),
         createdAt: new Date()
+      },
+      {
+        userId:1,
+        grimoireId:1,
+        title: "Gixie's Shakey Awakey",
+        content: "If the caster is asleep eight hours after this spell is cast, they are shaken until they wake up",
+        updatedAt: new Date(),
+        createdAt: new Date()
       }
     ], {});
   },
