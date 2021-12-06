@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
+import CreateSpellForm from '../CreateSpellForm';
 
 
 const SpellList = () => {
@@ -25,12 +26,15 @@ const SpellList = () => {
     if (spellList) {
         return (
             <div className="spell-container">
+                 <CreateSpellForm/>
                 <h1>Spells</h1>
                 {spellList.map(spell => {
                     return (
                         <div className={`spell-${spell.id}`}>
-                            <h2>{spell.title}</h2>
-                            <p>{spell.content}</p>
+
+                            <NavLink to={`/spell/${spell.id}`}>
+                                <h2 className="spell-title">{spell.title}</h2>
+                            </NavLink>
                         </div>
                     )
                 })}

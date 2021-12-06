@@ -22,6 +22,17 @@ export const getSpells = () => async dispatch => {
     }
 }
 
+export const createSpell = (newSpell) => async dispatch => {
+    const res = await fetch('api/spells/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newSpell)
+    })
+    const spell = await res.json()
+    if (res.ok) dispatch(addOneSpell(spell))
+}
+
+
 const initialState = {}
 
 const spellReducer = (state = initialState, action) => {
@@ -35,6 +46,11 @@ const spellReducer = (state = initialState, action) => {
             });
             return {
                 ...state, ...allSpells, spellList: action.spellArray
+            }
+        case ADD_ONE:
+            const spell = action.spell
+            return {
+                ...state, ...spell
             }
     }
 }

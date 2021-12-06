@@ -1,1 +1,44 @@
 /* TODO Add site wide styles */
+body {
+    background-color: #2f2f2f;
+}
+* {
+    color: wheat
+}
+h2 {
+    color: wheat;
+    text-decoration: none;
+}
+
+a h2{
+    text-decoration: none;
+}
+
+textarea {
+    margin: 4px;
+    border: wheat 2px solid;
+    background-color: #2f2f2f;
+    /* //border-style: none; */
+}
+
+input {
+    
+    margin: 4px;
+    border: wheat 2px solid;
+    /* border-style: none; */
+    background-color: #2f2f2f;
+}
+
+button {
+    margin: 4px;
+    border: wheat 2px solid;
+    border-radius: 3px;
+    background-color: #2f2f2f;
+}
+
+form.create-spell-form {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+
+}

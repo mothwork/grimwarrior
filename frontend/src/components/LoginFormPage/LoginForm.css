@@ -1,5 +1,5 @@
-form {
-    background-color: blanchedalmond;
+form.login-form {
+    /* background-color: ; */
     width: 200px;
     border-radius: 5px;
     flex: auto;
