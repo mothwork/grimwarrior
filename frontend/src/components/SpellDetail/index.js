@@ -51,7 +51,7 @@ const SpellDetail = () => {
             dispatch(editSpell(editedSpell))
             reset()
             closeForm()
-            history.push(`/spells/`)
+           
         }
     }
     const reset = () => {
