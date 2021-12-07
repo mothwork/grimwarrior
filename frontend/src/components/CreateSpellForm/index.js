@@ -49,7 +49,6 @@ const CreateSpellForm = () => {
     }
 
 
-
     return (
         <>
             <button onClick={!showForm?openForm:closeForm}>

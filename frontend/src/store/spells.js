@@ -51,9 +51,13 @@ const spellReducer = (state = initialState, action) => {
             }
         case ADD_ONE:
             const spell = action.spell
-            return {
-                ...state, ...spell
+            //onsole.log('STATE:', state)
+            const spellList = state.spellList
+            spellList.push(spell)
+            const newState = {
+                ...state, [spell.id]: spell
             }
+            return newState
     }
 }
 
