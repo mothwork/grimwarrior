@@ -25,10 +25,11 @@ const SpellList = () => {
     const spellList = spells.spellList
     if (spellList) {
         return (
-            <>
+            <div className='main-content'>
+
                 <CreateSpellForm />
-                <h1>Spells</h1>
                 <div className="spell-container">
+                <h1 className='header'>Spells</h1>
                     {spellList.map(spell => {
                         return (
 
@@ -44,7 +45,7 @@ const SpellList = () => {
                 <Route path='/spells/:spellId'>
                     <SpellDetail/>
                 </Route>
-            </>
+            </div>
         )
     }
 }

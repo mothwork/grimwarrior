@@ -1,21 +1,54 @@
+@font-face {
+    font-family: "Basteleur";
+    src: local('Basteleur'), url('../webfonts/Basteleur-Bold.ttf') format("truetype");
+  }
+
 .spell-container {
-    width: auto;
+    width: 200px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 500px;
+    overflow: scroll;
+    border-left: 1px solid wheat;
+    padding-left: 5px;
+    align-items: center;
+
+}
+
+h1 {
+    font-family: Basteleur;
+
 }
 
 .spell-card {
     /* border: 5px wheat solid; */
-    
+
     border-radius: 5px;
     width: 150px;
-    height: 200px;
+    height: 50px;
     padding:10px;
     margin: 5px;
-    color: whitesmoke;
+
     background-color: #3e3e3e;
     text-decoration: none;
     overflow: hidden;
+    font-size: 8px;
 
 }
+
+.spell-card h2 {
+    font-size: 15px;
+
+}
+
+.main-content {
+    display: flex;
+    width: auto;
+}
+
+.add-spell-button {
+    max-height: 50px;
+    margin: 10px;
+}
+

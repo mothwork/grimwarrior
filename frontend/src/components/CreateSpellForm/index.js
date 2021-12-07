@@ -12,10 +12,16 @@ const CreateSpellForm = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
+    const reset = () => {
+        setTitle('')
+        setContent('')
+    }
+
     const openForm = () => {
         if (showForm) return;
         setShowForm(true)
     }
+
 
     useEffect(() => {
         if (!showForm) return;
@@ -42,6 +48,7 @@ const CreateSpellForm = () => {
 
         if (newSpell) {
             dispatch(createSpell(newSpell))
+            reset()
             closeForm()
             history.push(`/spells`)
         }
@@ -51,7 +58,7 @@ const CreateSpellForm = () => {
 
     return (
         <>
-            <button onClick={!showForm?openForm:closeForm}>
+            <button className='add-spell-button' onClick={!showForm?openForm:closeForm}>
                 Add Spell
             </button>
             {showForm && (
