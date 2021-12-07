@@ -43,6 +43,7 @@ h1 {
 }
 
 .main-content {
+    margin: 10px;
     display: flex;
     width: auto;
 }
@@ -51,4 +52,3 @@ h1 {
     max-height: 50px;
     margin: 10px;
 }
-

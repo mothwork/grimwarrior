@@ -3,3 +3,23 @@ button {
     padding: 8px;
 
 }
+
+.nav-bar{
+    width: 100vw;
+    /* background-color: #1f1f1f; */
+    border-bottom: 1px wheat solid;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    border-radius: 5px;
+}
+
+.nav-bar h2 {
+    margin-left: 20px;
+}
+
+.nav-bar li {
+    padding-right: 10px;
+    margin-right: 5px;
+}

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Route, useParams } from 'react-router-dom';
+import { NavLink, Route} from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
 import CreateSpellForm from '../CreateSpellForm';

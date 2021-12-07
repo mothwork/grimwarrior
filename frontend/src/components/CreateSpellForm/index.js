@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { NavLink, Route, useParams } from 'react-router-dom';
+// import { NavLink, Route, useParams } from 'react-router-dom';
 
-import { createSpell, getSpells } from '../../store/spells';
+import { createSpell } from '../../store/spells';
 
 const CreateSpellForm = () => {
     const dispatch = useDispatch();
@@ -26,9 +26,9 @@ const CreateSpellForm = () => {
     useEffect(() => {
         if (!showForm) return;
 
-        const closeForm = () => {
-            setShowForm(false)
-        }
+        // const closeForm = () => {
+        //     setShowForm(false)
+        // }
         //document.addEventListener('click', closeForm)
         //return () => document.removeEventListener("click", closeForm);
     }, [showForm])

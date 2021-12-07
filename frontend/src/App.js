@@ -7,6 +7,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Spells from "./components/Spells"
+import Landing from "./components/Landing";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -18,9 +20,13 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
 
         <Switch>
+          <Route exact path='/'>
+            <Landing/>
+          </Route>
           <Route path="/spells">
             <Spells />
           </Route>

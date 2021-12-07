@@ -1,23 +1,23 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require('../../db/models')
-const {Spell, User, Grimoire } = db
+const { Spell, User, Grimoire } = db
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 
 
 const router = express.Router();
 
 //Get All spells
-router.get('/', restoreUser, asyncHandler(async function(req, res){
+router.get('/', restoreUser, asyncHandler(async function (req, res) {
     const { user } = req;
     const userId = user.id
-    const currUser = await User.findByPk(userId, {include: "Spells"})
+    const currUser = await User.findByPk(userId, { include: "Spells" })
     //console.log(currUser)
     return res.json(currUser.Spells) //Returns Array in res
 }))
 
 //Create Spell
-router.post('/', restoreUser, asyncHandler(async function (req,res) {
+router.post('/', restoreUser, asyncHandler(async function (req, res) {
     const id = req.user.id
 
     const {
@@ -36,10 +36,22 @@ router.post('/', restoreUser, asyncHandler(async function (req,res) {
 }))
 
 router.get('/:spellId', restoreUser, asyncHandler(async function (req, res) {
-    const {spellId} =req.params;
+    const { spellId } = req.params;
     const currSpell = await Spell.findByPk(spellId)
     //console.log(currSpell)
     return res.json(currSpell)
+}))
+
+router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
+    //const {spellId} = req.params
+    const spell = req.body
+    //onsole.log('Spell:',spell)
+    const spellId = spell.id
+    //console.log('spellid', spellId)
+    const currSpell = await Spell.findByPk(spellId)
+    await currSpell.destroy()
+    res.status = 204
+    return res
 }))
 
 module.exports = router;

@@ -18,5 +18,15 @@
 
 
 .spell-detail h2 {
-    font-family: Basteleur
+    font-family: Basteleur;
+    height: 20%vh;
+}
+
+.spell-detail p {
+    height:80%;
+    overflow: scroll;
+}
+
+.edit-delete {
+    border: #3e3e3e 1px solid;
 }
