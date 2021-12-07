@@ -4,6 +4,7 @@ import { csrfFetch } from "./csrf"
 const LOAD = 'spells/LOAD'
 const ADD_ONE = 'spells/ADD_ONE'
 const DELETE_ONE = 'spells/DELETE_ONE'
+const EDIT_ONE = 'spells/EDIT_ONE'
 
 const load = spellArray => ({
     type: LOAD,
@@ -17,6 +18,11 @@ const addOneSpell = spell => ({
 
 const deleteOneSpell = spell => ({
     type: DELETE_ONE,
+    spell
+})
+
+const editOneSpell = spell => ({
+    type: EDIT_ONE,
     spell
 })
 
@@ -41,15 +47,25 @@ export const createSpell = (newSpell) => async dispatch => {
 }
 
 export const deleteSpell = (spellToDelete) => async dispatch => {
-    console.log('inside delete spell 1')
+    //console.log('inside delete spell 1')
     const res = await csrfFetch(`/api/spells/${spellToDelete.id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spellToDelete)
     })
     const spell = await res.json()
-    console.log('inside delete spell 2')
+    //console.log('inside delete spell 2')
     if (res.ok) dispatch(deleteOneSpell(spell))
+}
+
+export const editSpell = (spellToEdit) => async dispatch => {
+    const res = await csrfFetch(`/api/spells/${spellToEdit.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(spellToEdit)
+    })
+    const spell = await res.json()
+    if (res.ok) dispatch(editOneSpell(spell))
 }
 
 
@@ -94,6 +110,24 @@ const spellReducer = (state = initialState, action) => {
             }
             console.log(index)
             spellList.splice(index,1)
+            const newState = {
+                ...state
+            }
+            return newState
+        }
+        case EDIT_ONE:{
+            const editedSpell = action.spell;
+            const spellList = state.spellList;
+            state[editedSpell.id] = editedSpell
+            delete state[deleteSpell.id]
+            let index;
+            for (let i = 0; i < spellList.length; i++) {
+                const spell = spellList[i];
+                if (spell.id === editedSpell.id){
+                    index = i
+                }
+            }
+            spellList.splice(index, 1, editedSpell)
             const newState = {
                 ...state
             }

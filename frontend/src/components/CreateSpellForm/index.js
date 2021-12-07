@@ -48,9 +48,10 @@ const CreateSpellForm = () => {
 
         if (newSpell) {
             dispatch(createSpell(newSpell))
+
             reset()
             closeForm()
-            history.push(`/spells`)
+            history.push(`/spells/`)
         }
 
     }

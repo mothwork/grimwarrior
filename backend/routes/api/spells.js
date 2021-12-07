@@ -54,4 +54,18 @@ router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
     return res.json(currSpell)
 }))
 
+router.put('/:spellId', restoreUser, asyncHandler(async function (req,res){
+    //const {spellId} = req.params
+    const spell = req.body
+    //onsole.log('Spell:',spell)
+    const spellId = spell.id
+    //console.log('spellid', spellId)
+    const currSpell = await Spell.findByPk(spellId)
+    currSpell.title = spell.title
+    currSpell.content = spell.content
+    await currSpell.save()
+    res.status = 200
+    return res.json(currSpell)
+}))
+
 module.exports = router;

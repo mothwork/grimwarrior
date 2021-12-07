@@ -29,4 +29,11 @@
 
 .edit-delete {
     border: #3e3e3e 1px solid;
+
+}
+
+.edit-delete:hover {
+    background-color: wheat;
+    color: #3e3e3e;
+
 }

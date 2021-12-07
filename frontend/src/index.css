@@ -3,6 +3,7 @@ body {
     background-color: #2f2f2f;
     display: flex;
     flex-direction: row;
+    width: auto;
 }
 * {
     color: wheat;
@@ -32,9 +33,19 @@ button {
     background-color: #2f2f2f;
 }
 
+button:hover {
+    border: #2f2f2f 2px solid;
+    background-color: wheat;
+    color: #2f2f2f
+}
+
 form.create-spell-form {
     display: flex;
     width: 400px;
     flex-direction: column;
 
+}
+
+button:hover > i {
+    color: #2f2f2f;
 }

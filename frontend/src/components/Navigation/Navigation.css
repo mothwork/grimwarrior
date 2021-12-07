@@ -5,7 +5,8 @@ button {
 }
 
 .nav-bar{
-    width: 100vw;
+    width: 800px;
+
     /* background-color: #1f1f1f; */
     border-bottom: 1px wheat solid;
     list-style: none;
