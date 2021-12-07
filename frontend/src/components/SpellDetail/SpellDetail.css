@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Basteleur";
+    src: local('Basteleur'), url('../webfonts/Basteleur-Bold.ttf') format("truetype");
+  }
+
+.spell-detail {
+    border-radius: 5px;
+    width: 400px;
+    height: 600px;
+    padding:10px;
+    margin: 5px;
+
+    background-color: #3e3e3e;
+    text-decoration: none;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+
+.spell-detail h2 {
+    font-family: Basteleur
+}
