@@ -51,7 +51,7 @@ router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
     const currSpell = await Spell.findByPk(spellId)
     await currSpell.destroy()
     res.status = 204
-    return res
+    return res.json(currSpell)
 }))
 
 module.exports = router;

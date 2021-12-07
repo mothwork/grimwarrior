@@ -41,13 +41,15 @@ export const createSpell = (newSpell) => async dispatch => {
 }
 
 export const deleteSpell = (spellToDelete) => async dispatch => {
+    console.log('inside delete spell 1')
     const res = await csrfFetch(`/api/spells/${spellToDelete.id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spellToDelete)
     })
-    console.log('inside delete spell')
-    if (res.ok) dispatch(deleteOneSpell(spellToDelete))
+    const spell = await res.json()
+    console.log('inside delete spell 2')
+    if (res.ok) dispatch(deleteOneSpell(spell))
 }
 
 
@@ -67,7 +69,7 @@ const spellReducer = (state = initialState, action) => {
             }
         case ADD_ONE:{
             const spell = action.spell
-            console.log('STATE:', state)
+
             const spellList = state.spellList
             spellList.push(spell)
             const newState = {
@@ -76,11 +78,20 @@ const spellReducer = (state = initialState, action) => {
             return newState
         }
         case DELETE_ONE:{
-            console.log('inside delete one')
+            //console.log('inside delete_one')
+            //console.log('STATE:', state)
             const deleteSpell = action.spell;
+            //console.log(deleteSpell)
             const spellList = state.spellList
             delete state[deleteSpell.id]
-            let index = spellList.indexOf(deleteSpell)
+            let index;
+            for (let i = 0; i < spellList.length; i++) {
+                const spell = spellList[i];
+                if (spell.id === deleteSpell.id){
+                    index = i
+                }
+
+            }
             console.log(index)
             spellList.splice(index,1)
             const newState = {

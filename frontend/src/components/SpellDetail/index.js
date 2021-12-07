@@ -9,19 +9,20 @@ const SpellDetail = () => {
     const { spellId } = useParams()
     const spell = useSelector(state => state.spell[spellId])
     const dispatch = useDispatch()
-    const history  = useHistory()
+    const history = useHistory()
 
 
 
     // const [title, setTitle] = useState(spell.title)
     // const [content, setContent] = useState(spell.content)
-     const handleDeleteClick = () => {
-        // const confirmed = window.confirm('Are you sure you wish to delete this spell?')
-        // if (confirmed) {
-        // }
-        dispatch(deleteSpell(spell))
-        history.push('/spells')
-     }
+    const handleDeleteClick = () => {
+        const confirmed = window.confirm('Are you sure you wish to delete this spell?')
+        if (confirmed) {
+            dispatch(deleteSpell(spell))
+            history.push('/spells')
+        }
+
+    }
 
 
     return (
@@ -36,7 +37,7 @@ const SpellDetail = () => {
                     Delete
                 </button>
             </div>
-        {/* <div className="spell-form-container">
+            {/* <div className="spell-form-container">
                 <form className="create-spell-form" onSubmit={'handleSubmit'}>
                     <input
                         name='title'
