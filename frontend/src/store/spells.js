@@ -1,4 +1,5 @@
 
+import { csrfFetch } from "./csrf"
 
 const LOAD = 'spells/LOAD'
 const ADD_ONE = 'spells/ADD_ONE'
@@ -23,7 +24,8 @@ export const getSpells = () => async dispatch => {
 }
 
 export const createSpell = (newSpell) => async dispatch => {
-    const res = await fetch('api/spells/', {
+
+    const res = await csrfFetch('api/spells/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newSpell)

@@ -4,7 +4,7 @@ import { NavLink, Route, useParams } from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
 import CreateSpellForm from '../CreateSpellForm';
-
+import "./Spells.css"
 
 const SpellList = () => {
     const dispatch = useDispatch();
@@ -25,20 +25,28 @@ const SpellList = () => {
     const spellList = spells.spellList
     if (spellList) {
         return (
-            <div className="spell-container">
-                 <CreateSpellForm/>
+            <>
+                <CreateSpellForm />
                 <h1>Spells</h1>
-                {spellList.map(spell => {
-                    return (
-                        <div className={`spell-${spell.id}`}>
+                <div className="spell-container">
+                    {spellList.map(spell => {
+                        return (
 
                             <NavLink to={`/spell/${spell.id}`}>
-                                <h2 className="spell-title">{spell.title}</h2>
+                                <div key={spell.id} className={`spell-${spell.id} spell-card`}>
+                                    <h2 className="spell-title">{spell.title}</h2>
+                                    <p className='spell-content'>{spell.content}</p>
+                                </div>
                             </NavLink>
-                        </div>
-                    )
-                })}
-            </div>
+
+
+                        )
+                    })}
+                </div>
+                <Route>
+                    {/* <SpellDetail/> */}
+                </Route>
+            </>
         )
     }
 }

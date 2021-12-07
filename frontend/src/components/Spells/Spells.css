@@ -1,3 +1,21 @@
-.spell-title {
+.spell-container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.spell-card {
+    /* border: 5px wheat solid; */
     
+    border-radius: 5px;
+    width: 150px;
+    height: 200px;
+    padding:10px;
+    margin: 5px;
+    color: whitesmoke;
+    background-color: #3e3e3e;
+    text-decoration: none;
+    overflow: hidden;
+
 }

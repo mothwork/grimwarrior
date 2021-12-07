@@ -46,7 +46,7 @@ const CreateSpellForm = () => {
                     rows={10}
 
                 ></textarea>
-                <button type='submit'>Record Spell in Grimoir</button>
+                <button type='submit'>Record Spell in Grimoire</button>
 
             </form>
         </div>

@@ -1,17 +1,13 @@
 /* TODO Add site wide styles */
 body {
     background-color: #2f2f2f;
+    display: flex;
+    width: auto;
 }
 * {
-    color: wheat
-}
-h2 {
     color: wheat;
     text-decoration: none;
-}
-
-a h2{
-    text-decoration: none;
+    list-style: none;
 }
 
 textarea {
@@ -22,7 +18,7 @@ textarea {
 }
 
 input {
-    
+
     margin: 4px;
     border: wheat 2px solid;
     /* border-style: none; */

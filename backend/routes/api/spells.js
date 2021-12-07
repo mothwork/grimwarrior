@@ -18,8 +18,21 @@ router.get('/', restoreUser, asyncHandler(async function(req, res){
 
 //Create Spell
 router.post('/', restoreUser, asyncHandler(async function (req,res) {
-    const id = await Spell.create(req.body)
-    return res.redirect(`${req.baseUrl}/${id}`)
+    const id = req.user.id
+
+    const {
+        title,
+        content
+    } = req.body
+
+    const newSpell = await Spell.create({
+        title,
+        content,
+        userId: id,
+        grimoireId: id //TODO FIX THIS so it isnt hardcoded
+    })
+    console.log(newSpell.dataValues.id)
+    return res.redirect(`${req.baseUrl}/${newSpell.dataValues.id}`)
 }))
 
 module.exports = router;
