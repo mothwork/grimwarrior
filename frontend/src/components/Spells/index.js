@@ -9,6 +9,7 @@ import "./Spells.css"
 
 const SpellList = () => {
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getSpells())
     }, [dispatch])
@@ -17,9 +18,7 @@ const SpellList = () => {
         return state.spell
     })
 
-    console.log(spells.spellList)
-
-
+    // console.log(spells.spellList)
 
     if (!spells.spellList) { return null }
 
@@ -33,18 +32,16 @@ const SpellList = () => {
                     {spellList.map(spell => {
                         return (
 
-                            <NavLink key={spell.id} to={`/spell/${spell.id}`}>
+                            <NavLink key={spell.id} to={`/spells/${spell.id}`}>
                                 <div  className={`spell-${spell.id} spell-card`}>
                                     <h2 className="spell-title">{spell.title}</h2>
                                     <p className='spell-content'>{spell.content}</p>
                                 </div>
                             </NavLink>
-
-
                         )
                     })}
                 </div>
-                <Route to='/spells/:id'>
+                <Route path='/spells/:spellId'>
                     <SpellDetail/>
                 </Route>
             </>

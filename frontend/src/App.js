@@ -21,7 +21,7 @@ function App() {
       {isLoaded && (
 
         <Switch>
-          <Route path="/home">
+          <Route path="/spells">
             <Spells />
           </Route>
           <Route path="/login">

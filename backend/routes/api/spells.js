@@ -31,8 +31,15 @@ router.post('/', restoreUser, asyncHandler(async function (req,res) {
         userId: id,
         grimoireId: id //TODO FIX THIS so it isnt hardcoded
     })
-    console.log(newSpell.dataValues.id)
+    ///console.log(newSpell.dataValues.id)
     return res.redirect(`${req.baseUrl}/${newSpell.dataValues.id}`)
+}))
+
+router.get('/:spellId', restoreUser, asyncHandler(async function (req, res) {
+    const {spellId} =req.params;
+    const currSpell = await Spell.findByPk(spellId)
+    //console.log(currSpell)
+    return res.json(currSpell)
 }))
 
 module.exports = router;
