@@ -4,6 +4,7 @@ import { NavLink, Route, useParams } from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
 import CreateSpellForm from '../CreateSpellForm';
+import SpellDetail from '../SpellDetail';
 import "./Spells.css"
 
 const SpellList = () => {
@@ -32,8 +33,8 @@ const SpellList = () => {
                     {spellList.map(spell => {
                         return (
 
-                            <NavLink to={`/spell/${spell.id}`}>
-                                <div key={spell.id} className={`spell-${spell.id} spell-card`}>
+                            <NavLink key={spell.id} to={`/spell/${spell.id}`}>
+                                <div  className={`spell-${spell.id} spell-card`}>
                                     <h2 className="spell-title">{spell.title}</h2>
                                     <p className='spell-content'>{spell.content}</p>
                                 </div>
@@ -43,8 +44,8 @@ const SpellList = () => {
                         )
                     })}
                 </div>
-                <Route>
-                    {/* <SpellDetail/> */}
+                <Route to='/spells/:id'>
+                    <SpellDetail/>
                 </Route>
             </>
         )
