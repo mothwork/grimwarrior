@@ -21,6 +21,11 @@ const editOneGrimoire = grimoire => ({
     grimoire
 })
 
+const deleteOneGrimoire = grimoire => ({
+    type: DELETE_ONE,
+    grimoire
+})
+
 
 export const getGrimoires = () => async dispatch => {
     const response = await fetch(`/api/grimoires`)
@@ -51,6 +56,18 @@ export const editGrimoire = (grimoireToEdit) => async dispatch => {
     })
     const grimoire = await res.json()
     if (res.ok) dispatch(editOneGrimoire(grimoire))
+}
+
+export const deleteGrimoire = (grimoireToDelete) => async dispatch => {
+    //console.log('inside delete spell 1')
+    const res = await csrfFetch(`/api/grimoires/${grimoireToDelete.id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(grimoireToDelete)
+    })
+    const grimoire = await res.json()
+    //console.log('inside delete spell 2')
+    if (res.ok) dispatch(deleteOneGrimoire(grimoire))
 }
 
 const initialState = {};
@@ -92,6 +109,28 @@ const grimoireReducer = (state = initialState, action)=>{
                 }
             }
             grimoireList.splice(index, 1, editedGrimoire)
+            const newState = {
+                ...state
+            }
+            return newState
+        }
+        case DELETE_ONE:{
+            //console.log('inside delete_one')
+            //console.log('STATE:', state)
+            const deleteGrimoire = action.grimoire;
+            //console.log(deleteSpell)
+            const grimoireList = state.grimoireList
+            delete state[deleteGrimoire.id]
+            let index;
+            for (let i = 0; i < grimoireList.length; i++) {
+                const grimoire = grimoireList[i];
+                if (grimoire.id === deleteGrimoire.id){
+                    index = i
+                }
+
+            }
+            //console.log(index)
+            grimoireList.splice(index,1)
             const newState = {
                 ...state
             }

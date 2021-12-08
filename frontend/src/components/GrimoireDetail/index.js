@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
-import { editGrimoire } from "../../store/grimoires"
+import { deleteGrimoire, editGrimoire } from "../../store/grimoires"
 import GrimoireList from "../Grimoires"
+
 import './GrimoireDetail.css'
 
 const GrimoireDetail = () => {
@@ -19,14 +20,14 @@ const GrimoireDetail = () => {
         setName(grimoire.name)
     }, [grimoire.name])
 
-    // const handleDeleteClick = () => {
-    //     const confirmed = window.confirm('Are you sure you wish to delete this spell?')
-    //     if (confirmed) {
-    //         dispatch(deleteGrimoire(grimoire))
-    //         history.push('/spells')
-    //     }
+    const handleDeleteClick = () => {
+        const confirmed = window.confirm('Are you sure you wish to delete this Grimoire?')
+        if (confirmed) {
+            dispatch(deleteGrimoire(grimoire))
+            history.push('/spells')
+        }
 
-    // }
+    }
 
     const openForm = () => {
         if (showEditForm) return;
@@ -90,7 +91,7 @@ const GrimoireDetail = () => {
                 <button onClick={!showEditForm ? openForm : closeForm} className='edit-delete'>
                     {!showEditForm ? 'Edit' : 'Cancel'}
                 </button>
-                <button onClick={"handleDeleteClick"} className='edit-delete'>
+                <button onClick={handleDeleteClick} className='edit-delete'>
                     Delete
                 </button>
             </div>
