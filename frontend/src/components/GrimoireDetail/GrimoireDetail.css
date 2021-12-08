@@ -1,0 +1,17 @@
+.grimoire-detail-container {
+    margin: 10px;
+    display: flex;
+    width: auto;
+}
+
+.selected-grimoire {
+    margin-left: 20px;
+
+}
+
+.selected-grimoire input {
+    margin-left: 20px;
+    line-height: 100%;
+
+    font-size: 25px;
+}

@@ -81,3 +81,12 @@ h1 {
     margin: 10px;
 
 }
+
+.button-container {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+
+}

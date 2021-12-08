@@ -8,7 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Spells from "./components/Spells"
 import Landing from "./components/Landing";
-
+import GrimoireDetail from "./components/GrimoireDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +26,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Landing/>
+          </Route>
+          <Route path='/grimoires/:grimoireId'>
+            <GrimoireDetail/>
           </Route>
           <Route path="/spells">
             <Spells />

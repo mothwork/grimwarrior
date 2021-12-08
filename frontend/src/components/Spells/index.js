@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Route} from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import { getGrimoires } from '../../store/grimoires';
 
 import { getSpells } from '../../store/spells';
+import CreateGrimoreForm from '../CreateGrimoireForm';
 import CreateSpellForm from '../CreateSpellForm';
+import GrimoireList from '../Grimoires';
+import GrimoireDetail from '../GrimoireDetail';
 import SpellDetail from '../SpellDetail';
 import "./Spells.css"
 
@@ -26,15 +30,19 @@ const SpellList = () => {
     if (spellList) {
         return (
             <div className='main-content'>
+                <GrimoireList />
 
-                <CreateSpellForm />
+                <div className='button-container'>
+                    <CreateSpellForm />
+                    <CreateGrimoreForm />
+                </div>
                 <div className="spell-container">
-                <h1 className='header'>Spells</h1>
+                    <h1 className='header'>Spells</h1>
                     {spellList.map(spell => {
                         return (
 
                             <NavLink key={spell.id} to={`/spells/${spell.id}`}>
-                                <div  className={`spell-${spell.id} spell-card`}>
+                                <div className={`spell-${spell.id} spell-card`}>
                                     <h2 className="spell-title">{spell.title}</h2>
                                     <p className='spell-content'>{spell.content}</p>
                                 </div>
@@ -43,8 +51,9 @@ const SpellList = () => {
                     })}
                 </div>
                 <Route path='/spells/:spellId'>
-                    <SpellDetail/>
+                    <SpellDetail />
                 </Route>
+                
             </div>
         )
     }

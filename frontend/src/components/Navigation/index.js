@@ -39,6 +39,11 @@ function Navigation({ isLoaded }) {
             Spells
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/grimoires">
+            Grimoires
+          </NavLink>
+        </li>
         {isLoaded && sessionLinks}
 
       </ul>

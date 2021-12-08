@@ -34,6 +34,22 @@ module.exports = {
         content: "If the caster is asleep eight hours after this spell is cast, they are shaken until they wake up",
         updatedAt: new Date(),
         createdAt: new Date()
+      },
+      {
+        userId:1,
+        grimoireId:2,
+        title: "Tempest Shield",
+        content: "A glistening sparkle covers your clothing, repelling all moisture both magical and mundane. The spell lasts for eight hours. Upon expiration, any present moisture will break through.",
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
+        userId:1,
+        grimoireId:2,
+        title: "Thunder Sign",
+        content: "A small rune is conjured in the air in front of you, any who try to pass within 10 feet of the rune without whispering the password are struck by a bolt of electricity. The sign can expend ten such bolts of electricity before the spell is extinguished.",
+        updatedAt: new Date(),
+        createdAt: new Date()
       }
     ], {});
   },

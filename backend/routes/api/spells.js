@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require('../../db/models')
 const { Spell, User, Grimoire } = db
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { restoreUser } = require('../../utils/auth');
 
 
 const router = express.Router();
@@ -12,7 +12,8 @@ router.get('/', restoreUser, asyncHandler(async function (req, res) {
     const { user } = req;
     const userId = user.id
     const currUser = await User.findByPk(userId, { include: "Spells" })
-    //console.log(currUser)
+    //const grimoires = await Grimoire.findAll({where: {userId}}) Grimoire test
+    //console.log(grimoires)
     return res.json(currUser.Spells) //Returns Array in res
 }))
 
