@@ -27,4 +27,18 @@ router.post('/', restoreUser, asyncHandler(async (req,res)=>{
     return res.redirect(`${req.baseUrl}`)
 } ))
 
+router.put('/:grimoireId', restoreUser, asyncHandler(async function (req,res){
+    //const {spellId} = req.params
+    const grimoire = req.body
+    //onsole.log('Spell:',spell)
+    const grimoireId = grimoire.id
+    //console.log('spellid', spellId)
+    const currGrimoire = await Grimoire.findByPk(grimoireId)
+    currGrimoire.name = grimoire.name
+
+    await currGrimoire.save()
+    res.status = 200
+    return res.json(currGrimoire)
+}))
+
 module.exports = router;
