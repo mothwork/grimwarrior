@@ -2,12 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
 import spellReducer from "./spells";
+import grimoireReducer from "./grimoires";
 
 
 const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
-  spell: spellReducer
+  spell: spellReducer,
+  grimoire: grimoireReducer
 });
 
 let enhancer;

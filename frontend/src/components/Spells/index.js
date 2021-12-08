@@ -4,6 +4,7 @@ import { NavLink, Route} from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
 import CreateSpellForm from '../CreateSpellForm';
+import GrimoireList from '../Grimoires';
 import SpellDetail from '../SpellDetail';
 import "./Spells.css"
 
@@ -26,7 +27,7 @@ const SpellList = () => {
     if (spellList) {
         return (
             <div className='main-content'>
-
+                <GrimoireList/>
                 <CreateSpellForm />
                 <div className="spell-container">
                 <h1 className='header'>Spells</h1>
