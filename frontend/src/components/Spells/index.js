@@ -7,6 +7,7 @@ import { getSpells } from '../../store/spells';
 import CreateGrimoreForm from '../CreateGrimoireForm';
 import CreateSpellForm from '../CreateSpellForm';
 import GrimoireList from '../Grimoires';
+import GrimoireDetail from '../GrimoireDetail';
 import SpellDetail from '../SpellDetail';
 import "./Spells.css"
 
@@ -30,10 +31,11 @@ const SpellList = () => {
         return (
             <div className='main-content'>
                 <GrimoireList />
-                    <div className='button-container'>
+
+                <div className='button-container'>
                     <CreateSpellForm />
                     <CreateGrimoreForm />
-                    </div>
+                </div>
                 <div className="spell-container">
                     <h1 className='header'>Spells</h1>
                     {spellList.map(spell => {
@@ -51,6 +53,7 @@ const SpellList = () => {
                 <Route path='/spells/:spellId'>
                     <SpellDetail />
                 </Route>
+                
             </div>
         )
     }

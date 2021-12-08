@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import { editGrimoire } from "../../store/grimoires"
+import GrimoireList from "../Grimoires"
+import './GrimoireDetail.css'
 
 const GrimoireDetail = () => {
     const dispatch = useDispatch()
@@ -53,8 +55,9 @@ const GrimoireDetail = () => {
     }
 
     return (
-        <div className="">
-
+        <div className="grimoire-detail-container">
+            <GrimoireList/>
+            <div className='selected-grimoire'>
             {!showEditForm && (
                 <div className="grimoire-detail">
                     <h1>{grimoire.name}</h1>
@@ -83,6 +86,7 @@ const GrimoireDetail = () => {
             )}
 
             <div className='spell-detail-footer'>
+
                 <button onClick={!showEditForm ? openForm : closeForm} className='edit-delete'>
                     {!showEditForm ? 'Edit' : 'Cancel'}
                 </button>
@@ -90,7 +94,7 @@ const GrimoireDetail = () => {
                     Delete
                 </button>
             </div>
-
+            </div>
         </div>
     )
 
