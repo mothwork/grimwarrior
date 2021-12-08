@@ -1,5 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+//const { where } = require('sequelize/types');
 const db = require('../../db/models')
 const { Spell, User, Grimoire } = db
 const { restoreUser } = require('../../utils/auth');
@@ -20,19 +21,20 @@ router.get('/', restoreUser, asyncHandler(async function (req, res) {
 //Create Spell
 router.post('/', restoreUser, asyncHandler(async function (req, res) {
     const id = req.user.id
-
+    const userId = id
     const {
         title,
         content
     } = req.body
 
-    
+    const defaultGrimoire = await Grimoire.findOne({where:{userId}}, {where:{isDefault:true}})
+    console.log(defaultGrimoire)
 
     const newSpell = await Spell.create({
         title,
         content,
         userId: id,
-        grimoireId: id //TODO FIX THIS so it isnt hardcoded
+        grimoireId: defaultGrimoire.id //TODO FIX THIS so it isnt hardcoded
     })
     ///console.log(newSpell.dataValues.id)
     return res.redirect(`${req.baseUrl}/${newSpell.dataValues.id}`)
@@ -52,6 +54,7 @@ router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
     const spellId = spell.id
     //console.log('spellid', spellId)
     const currSpell = await Spell.findByPk(spellId)
+    
     await currSpell.destroy()
     res.status = 204
     return res.json(currSpell)

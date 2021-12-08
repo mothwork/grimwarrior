@@ -49,7 +49,11 @@ router.delete('/:grimoireId', restoreUser, asyncHandler(async function (req, res
     const grimoireId = grimoire.id
     //console.log('grimoirId:', grimoireId)
     const currGrimoire = await Grimoire.findByPk(grimoireId)
-    //const dependentSpells = await Spell.findAll({where:{grimoireId}})
+    const defaultGrimoire = await Grimoire.findOne({where:{userId}}, {where:{isDefault:true}})
+    // const dependentSpells = await Spell.findAll({where:{grimoireId}})
+    // dependentSpells.map(spell => {
+    //     spell.grimoireId = defaultGrimoire.id
+    // })
     //console.log(dependentSpells)
     // if (!dependentSpells.length === 0) {
     //     await currGrimoire.destroy()
