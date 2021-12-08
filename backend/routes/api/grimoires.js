@@ -21,7 +21,8 @@ router.post('/', restoreUser, asyncHandler(async (req, res) => {
     //console.log('After destructure')
     const newGrimoire = await Grimoire.create({
         name: name,
-        userId: id
+        userId: id,
+        isDefault: false
     })
     res.json(newGrimoire)
     return res.redirect(`${req.baseUrl}`)

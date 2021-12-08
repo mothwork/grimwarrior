@@ -26,6 +26,8 @@ router.post('/', restoreUser, asyncHandler(async function (req, res) {
         content
     } = req.body
 
+    
+
     const newSpell = await Spell.create({
         title,
         content,
