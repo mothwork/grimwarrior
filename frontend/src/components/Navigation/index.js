@@ -35,7 +35,9 @@ function Navigation({ isLoaded }) {
       <h2>GrimWarrior</h2>
       <ul className='nav-bar'>
         <li>
-
+          <NavLink to="/spells">
+            Spells
+          </NavLink>
         </li>
         {isLoaded && sessionLinks}
 
