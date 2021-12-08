@@ -91,9 +91,10 @@ const GrimoireDetail = () => {
                 <button onClick={!showEditForm ? openForm : closeForm} className='edit-delete'>
                     {!showEditForm ? 'Edit' : 'Cancel'}
                 </button>
-                <button onClick={handleDeleteClick} className='edit-delete'>
+                {!grimoire.isDefault && (<button onClick={handleDeleteClick} className='edit-delete'>
                     Delete
-                </button>
+                </button>) }
+
             </div>
             </div>
         </div>
