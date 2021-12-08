@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import DemoUserButton from '../DemoUser';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -16,6 +17,9 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
+        <li>
+          <DemoUserButton/>
+        </li>
         <li>
           <NavLink to="/login">Log In</NavLink>
         </li>
@@ -31,7 +35,7 @@ function Navigation({ isLoaded }) {
       <h2>GrimWarrior</h2>
       <ul className='nav-bar'>
         <li>
-          <NavLink exact to="/spells">Home</NavLink>
+
         </li>
         {isLoaded && sessionLinks}
 

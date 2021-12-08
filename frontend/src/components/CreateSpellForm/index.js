@@ -60,7 +60,7 @@ const CreateSpellForm = () => {
     return (
         <>
             <button className='add-spell-button' onClick={!showForm?openForm:closeForm}>
-                Add Spell
+                {!showForm?'New Spell':'Cancel'}
             </button>
             {showForm && (
                 <div className="spell-form-container">

@@ -51,7 +51,7 @@ const SpellDetail = () => {
             dispatch(editSpell(editedSpell))
             reset()
             closeForm()
-           
+
         }
     }
     const reset = () => {
@@ -73,6 +73,7 @@ const SpellDetail = () => {
                 <div className="spell-form-container">
                     <form className="create-spell-form" onSubmit={handleSubmit}>
                         <input
+                            className='edit-spell-textarea'
                             name='title'
                             type='text'
                             placeholder='Enter a Spell Title'
@@ -81,15 +82,16 @@ const SpellDetail = () => {
                         >
                         </input>
                         <textarea
+                            className='edit-spell-textarea'
                             name="content"
                             placeholder='Begin the work of trascribing the deepest mysteries...'
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             cols={50}
-                            rows={10}
+                            rows={30}
 
                         ></textarea>
-                        <button type='submit'>Update Spell in Grimoire</button>
+                        <button className='edit-delete' type='submit'>Update Spell in Grimoire</button>
 
 
                     </form>
