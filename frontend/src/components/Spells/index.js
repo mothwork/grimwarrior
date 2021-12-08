@@ -15,7 +15,6 @@ const SpellList = () => {
 
     useEffect(() => {
         dispatch(getSpells())
-        dispatch(getGrimoires())
     }, [dispatch])
 
     const spells = useSelector(state => {

@@ -13,7 +13,9 @@ const GrimoireList = () => {
     }, [dispatch])
 
     const grimoires = useSelector(state => {
+        console.log('getting state')
         return state.grimoire
+
     })
 
     const grimoireList = grimoires.grimoireList

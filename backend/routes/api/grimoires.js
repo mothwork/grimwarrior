@@ -23,7 +23,7 @@ router.post('/', restoreUser, asyncHandler(async (req,res)=>{
         name: name,
         userId: id
     })
-    //console.log("After DB create")
+    res.json(newGrimoire)
     return res.redirect(`${req.baseUrl}`)
 } ))
 

@@ -55,11 +55,14 @@ const grimoireReducer = (state = initialState, action)=>{
             }
         case ADD_ONE: {
             const grimoire = action.grimoire
+            //console.log('GRIMOIRE',grimoire)
             const grimoireList = state.grimoireList
+            //console.log('GRIMOIRELIST',grimoireList)
             grimoireList.push(grimoire)
             const newState = {
                 ...state, [grimoire.id]: grimoire
             }
+            console.log(newState)
             return newState;
         }
     }
