@@ -12,7 +12,19 @@ router.get('/', restoreUser, asyncHandler(async (req,res)=>{
     return res.json(grimoires)
 }))
 
+router.post('/', restoreUser, asyncHandler(async (req,res)=>{
+    const id = req.user.id
 
-
+    const {
+        name
+    } = req.body
+    //console.log('After destructure')
+    const newGrimoire = await Grimoire.create({
+        name: name,
+        userId: id
+    })
+    //console.log("After DB create")
+    return res.redirect(`${req.baseUrl}`)
+} ))
 
 module.exports = router;

@@ -11,6 +11,11 @@ const load = grimoireArray => ({
     grimoireArray
 })
 
+const addOneGrimoire = grimoire => ({
+    type: ADD_ONE,
+    grimoire
+})
+
 
 export const getGrimoires = () => async dispatch => {
     const response = await fetch(`/api/grimoires`)
@@ -21,6 +26,18 @@ export const getGrimoires = () => async dispatch => {
     }
 }
 
+export const createGrimoire = (newGrimoire) => async dispatch => {
+    console.log('before fetch')
+    const res = await csrfFetch('/api/grimoires/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newGrimoire)
+    })
+    const grimoire = await res.json()
+    console.log(grimoire)
+    if (res.ok) dispatch(addOneGrimoire(grimoire))
+}
+
 const initialState = {};
 
 const grimoireReducer = (state = initialState, action)=>{
@@ -29,13 +46,22 @@ const grimoireReducer = (state = initialState, action)=>{
             return state
         case LOAD:
             const allGrimoires = {}
-            console.log(action.grimoireArray)
+            //console.log(action.grimoireArray)
             action.grimoireArray.forEach(grimoire => {
                 allGrimoires[grimoire.id] = grimoire
             });
             return {
                 ...state, ...allGrimoires, grimoireList: action.grimoireArray
             }
+        case ADD_ONE: {
+            const grimoire = action.grimoire
+            const grimoireList = state.grimoireList
+            grimoireList.push(grimoire)
+            const newState = {
+                ...state, [grimoire.id]: grimoire
+            }
+            return newState;
+        }
     }
 }
 
