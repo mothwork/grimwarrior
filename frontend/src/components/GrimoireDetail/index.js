@@ -72,9 +72,9 @@ const GrimoireDetail = () => {
                     <button className='backarrow' onClick={handleBack}>
                     <i class="fas fa-chevron-left"></i>
                     </button>
-                    <h1>
+                    <h1 className="small-h1">
                         {grimoire.name}
-                        </h1>
+                    </h1>
 
                 </div>
             )}
