@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 
+
 function DemoUserButton() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [credential, setCredential] = useState('mythrandir');
+  const [credential, setCredential] = useState('mithrandir');
   const [password, setPassword] = useState('mellon');
   const [errors, setErrors] = useState([]);
 

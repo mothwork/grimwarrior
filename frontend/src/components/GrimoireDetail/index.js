@@ -21,7 +21,7 @@ const GrimoireDetail = () => {
     }, [grimoire.name])
 
     const handleDeleteClick = () => {
-        const confirmed = window.confirm('Are you sure you wish to delete this Grimoire?')
+        const confirmed = window.confirm('Are you sure you wish to delete this Grimoire? \n\nAll of the spells contained within the deleted grimoire will be sent to your Spell Workbook.')
         if (confirmed) {
             dispatch(deleteGrimoire(grimoire))
             history.push('/spells')
