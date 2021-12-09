@@ -32,21 +32,22 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className='nav-bar'>
-      <h2>GrimWarrior</h2>
-      <ul className='nav-bar'>
+
+      <ul className='links'>
         <li>
           <NavLink to="/spells">
-            Spells
+            <button>Spells</button>
           </NavLink>
         </li>
         <li>
           <NavLink to="/grimoires">
-            Grimoires
+            <button>Grimoires</button>
           </NavLink>
         </li>
         {isLoaded && sessionLinks}
 
       </ul>
+      <h2>GrimWarrior</h2>
     </div>
   );
 }

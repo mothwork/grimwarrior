@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'cal_fraktur_modernregular';
+    src: url('../webfonts/cal_fraktur_modern-webfont.woff2') format('woff2'),
+         url('../webfonts/cal_fraktur_modern-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 button {
     /* border-radius: 50%; */
     padding: 8px;
@@ -5,22 +15,36 @@ button {
 }
 
 .nav-bar{
-    width: 100%;
-
+    width: 100vw;
+    /* box-sizing: border-box; */
     /* background-color: #1f1f1f; */
-    border-bottom: 1px wheat solid;
+    border-bottom: 3px #1f1f1f solid;
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    border-radius: 5px;
+    justify-content: left;
+    /* border-radius: 5px; */
 }
 
 .nav-bar h2 {
     margin-left: 20px;
+    margin-right: 100px;
+    font-family: 'cal_fraktur_modernregular';
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .nav-bar li {
     padding-right: 10px;
     margin-right: 5px;
+}
+
+.links {
+    /* border: 1px solid wheat; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
 }

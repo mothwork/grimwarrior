@@ -73,7 +73,7 @@ h1 {
 .main-content {
     margin: 10px;
     display: flex;
-    width: auto;
+    width: 100%vw;
 }
 
 .add-spell-button {
