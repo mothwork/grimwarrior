@@ -20,29 +20,17 @@ h1 {
     font-family: Basteleur;
     background: linear-gradient(270deg, #19deab, #4b81e7);;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: AnimationName 0s ease infinite;
-    -moz-animation: AnimationName 0s ease infinite;
-    animation: AnimationName 0s ease infinite;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
+    animation: hue 10s infinite linear;
 
 
 }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+
+
+
 
 .spell-card {
     /* border: 5px wheat solid; */
@@ -56,7 +44,8 @@ h1 {
     background-color: #3e3e3e;
     text-decoration: none;
     overflow: hidden;
-    font-size: 8px;
+    font-size: 4px;
+
 
 }
 
@@ -66,8 +55,17 @@ h1 {
 }
 
 .spell-card h2 {
-    font-size: 15px;
+    font-size: 12px;
 
+}
+
+.spell-card p {
+    background: linear-gradient(270deg, #19deab, #4b81e7);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: shimmer 0s ease infinite;
+    -moz-animation: shimmer 0s ease infinite;
+    animation: shimmer 0s ease infinite;
 }
 
 .main-content {

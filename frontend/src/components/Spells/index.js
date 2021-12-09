@@ -30,9 +30,10 @@ const SpellList = () => {
     if (spellList) {
         return (
             <>
-            
+
             <div className='main-content'>
                 <GrimoireList />
+                
                 <div className='button-container'>
                     <CreateSpellForm />
                     <CreateGrimoreForm />

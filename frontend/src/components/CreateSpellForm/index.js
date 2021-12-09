@@ -9,7 +9,7 @@ const CreateSpellForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showForm, setShowForm] = useState(false)
-    const [title, setTitle] = useState('')
+    let [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
     const reset = () => {
@@ -40,6 +40,13 @@ const CreateSpellForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //console.log('TITLE:', title.length)
+        if (title.length === 0){
+            console.log('inside condtional')
+            setTitle('New Spell')
+            let now = new Date()
+
+            title = 'New Spell Created: '+now.toDateString()        }
 
         const newSpell = {
             title,

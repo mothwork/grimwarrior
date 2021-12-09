@@ -48,11 +48,16 @@ const GrimoireDetail = () => {
             dispatch(editGrimoire(editedGrimoire))
             reset()
             closeForm()
-
+            history.push('/spells')
         }
     }
     const reset = () => {
         setName('')
+    }
+
+    const handleBack = async (e) => {
+        e.preventDefault();
+        history.push('/spells')
     }
 
     return (
@@ -61,7 +66,11 @@ const GrimoireDetail = () => {
             <div className='selected-grimoire'>
             {!showEditForm && (
                 <div className="grimoire-detail">
-                    <h1>{grimoire.name}</h1>
+                    <button className='backarrow' onClick={handleBack}>
+                    <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h1>
+                        {grimoire.name}</h1>
                     <p>spells will go here</p>
                 </div>
             )}
