@@ -17,6 +17,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         refrences: {model: 'Users'}
       },
+      isDefault: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -21,7 +21,7 @@ const GrimoireDetail = () => {
     }, [grimoire.name])
 
     const handleDeleteClick = () => {
-        const confirmed = window.confirm('Are you sure you wish to delete this Grimoire?')
+        const confirmed = window.confirm('Are you sure you wish to delete this Grimoire? \n\nAll of the spells contained within the deleted grimoire will be sent to your Spell Workbook.')
         if (confirmed) {
             dispatch(deleteGrimoire(grimoire))
             history.push('/spells')
@@ -91,9 +91,10 @@ const GrimoireDetail = () => {
                 <button onClick={!showEditForm ? openForm : closeForm} className='edit-delete'>
                     {!showEditForm ? 'Edit' : 'Cancel'}
                 </button>
-                <button onClick={handleDeleteClick} className='edit-delete'>
+                {!grimoire.isDefault && (<button onClick={handleDeleteClick} className='edit-delete'>
                     Delete
-                </button>
+                </button>) }
+
             </div>
             </div>
         </div>

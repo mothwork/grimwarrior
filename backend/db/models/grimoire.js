@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Grimoire = sequelize.define('Grimoire', {
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    isDefault: DataTypes.BOOLEAN
   }, {});
   Grimoire.associate = function(models) {
     // associations can be defined here

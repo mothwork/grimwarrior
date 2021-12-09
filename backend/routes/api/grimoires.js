@@ -21,7 +21,8 @@ router.post('/', restoreUser, asyncHandler(async (req, res) => {
     //console.log('After destructure')
     const newGrimoire = await Grimoire.create({
         name: name,
-        userId: id
+        userId: id,
+        isDefault: false
     })
     res.json(newGrimoire)
     return res.redirect(`${req.baseUrl}`)
@@ -42,19 +43,24 @@ router.put('/:grimoireId', restoreUser, asyncHandler(async function (req, res) {
 }))
 
 router.delete('/:grimoireId', restoreUser, asyncHandler(async function (req, res) {
-
+    const userId = req.user.id
     const grimoire = req.body
     //console.log(grimoire)
     const grimoireId = grimoire.id
     //console.log('grimoirId:', grimoireId)
+
+    const defaultGrimoire = await Grimoire.findOne({where:{userId}}, {where:{isDefault:true}})
+
+    const dependentSpells = await Spell.findAll({where:{grimoireId}})
+    for (let i = 0; i < dependentSpells.length; i++) {
+        const spell = dependentSpells[i];
+        const spellObj = await Spell.findByPk(spell.id);
+        spellObj.grimoireId = defaultGrimoire.id
+        await spellObj.save()
+    }
+    
+    // await dependentSpells.save()
     const currGrimoire = await Grimoire.findByPk(grimoireId)
-    //const dependentSpells = await Spell.findAll({where:{grimoireId}})
-    //console.log(dependentSpells)
-    // if (!dependentSpells.length === 0) {
-    //     await currGrimoire.destroy()
-    //     res.status = 204
-    //     return res.json(currGrimoire)
-    // }
     await currGrimoire.destroy()
     res.status = 204
     return res.json(currGrimoire)
