@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "Basteleur";
+    src: local('Basteleur'), url('../webfonts/Basteleur-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'cal_fraktur_modernregular';
+    src: url('../webfonts/cal_fraktur_modern-webfont.woff2') format('woff2'),
+         url('../webfonts/cal_fraktur_modern-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.landing-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 10px red solid; */
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('https://i.imgur.com/dDllTa6.jpg')
+}
+
+.welcome {
+    border: 3px wheat;
+    background-color: rgba(2, 2, 2, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* display:flex; */
+
+}
+
+.welcome button {
+    background-color: none;
+}
+
+.welcome h2 {
+    font-size: 45px;
+    font-family: 'Basteleur';
+    margin: 4px
+}
+
+.welcome span {
+
+    font-family: 'cal_fraktur_modernregular' ;
+    font-size: 70px;
+    background: linear-gradient(270deg, #19deab, #4b81e7);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: AnimationName 0s ease infinite;
+    -moz-animation: AnimationName 0s ease infinite;
+    animation: AnimationName 0s ease infinite;
+}
