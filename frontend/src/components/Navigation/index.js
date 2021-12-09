@@ -12,7 +12,19 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
+      <li>
+          <NavLink to="/spells">
+            <button>Spells</button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/grimoires">
+            <button>Grimoires</button>
+          </NavLink>
+        </li>
       <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -34,7 +46,7 @@ function Navigation({ isLoaded }) {
     <div className='nav-bar'>
 
       <ul className='links'>
-        <li>
+        {/* <li>
           <NavLink to="/spells">
             <button>Spells</button>
           </NavLink>
@@ -43,7 +55,7 @@ function Navigation({ isLoaded }) {
           <NavLink to="/grimoires">
             <button>Grimoires</button>
           </NavLink>
-        </li>
+        </li> */}
         {isLoaded && sessionLinks}
 
       </ul>
