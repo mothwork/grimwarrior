@@ -16,6 +16,8 @@ button {
 
 .nav-bar{
     width: 100vw;
+    /* height: 20%vw; */
+    /* position:absolute; */
     /* box-sizing: border-box; */
     /* background-color: #1f1f1f; */
     border-bottom: 3px #1f1f1f solid;
