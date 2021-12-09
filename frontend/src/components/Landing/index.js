@@ -1,12 +1,26 @@
-
+import { NavLink, Link } from 'react-router-dom'
+import { signup } from '../../store/session'
+import './Landing.css'
 
 const landing = () => {
     return (
-        <div>
-            <h3>Welcome to GrimWarrior</h3>
-            <p>Well met traveller! Hang up your cloak and pull up a seat around the fire.</p>
-            <p>GrimWarrior is the premier tool for Wizards of all walks to manage their grimoires, tomes, and spellbooks. </p>
-            <p> Sign up today to see why Elminster of Shadowdale no longer returns our calls!</p>
+        <div className="landing-container">
+            <div className='welcome'>
+
+                <h2>Welcome to <span className='intro'>GrimWarrior</span></h2>
+
+                <p>The premier tool for Grimoire Managment™ </p>
+                <div>
+                    <NavLink to='/login'>
+                        <button className='landing-button'>Login</button>
+                    </NavLink>
+                    <NavLink to='/signup'>
+                        <button className='landing-button'>Sign Up</button>
+                    </NavLink>
+                </div>
+
+            </div>
+
         </div>
     )
 }

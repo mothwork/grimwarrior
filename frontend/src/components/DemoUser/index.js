@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom';
 
 
 function DemoUserButton() {
+  const history = useHistory()
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('mithrandir');
@@ -21,6 +22,7 @@ function DemoUserButton() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    history.push('/spells')
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
