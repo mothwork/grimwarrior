@@ -22,7 +22,7 @@ function DemoUserButton() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    history.push('/spells')
+    //history.push('/spells')
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
