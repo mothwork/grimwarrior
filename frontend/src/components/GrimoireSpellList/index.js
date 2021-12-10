@@ -49,7 +49,7 @@ const GrimoireSpellList = ({grimoireId}) => {
                     {spellList.map(spell => {
                         return (
 
-                            <NavLink key={spell.id} to={`/spells/${spell.id}`}>
+                            <NavLink key={spell.id} to={`/grimoires/${grimoireId}/spells/${spell.id}`}>
                                 <div className={`spell-${spell.id} spell-card`}>
                                     <h2 className="spell-title">{spell.title}</h2>
                                     <p className='spell-content'>{spell.content}</p>
@@ -58,7 +58,7 @@ const GrimoireSpellList = ({grimoireId}) => {
                         )
                     })}
                 </div>
-                <Route path='/spells/:spellId'>
+                <Route path='/grimoires/:grimoireId/spells/:spellId'>
                     <SpellDetail />
                 </Route>
 
