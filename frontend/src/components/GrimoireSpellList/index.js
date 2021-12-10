@@ -5,7 +5,7 @@ import { NavLink, Route } from 'react-router-dom';
 
 import { getSpells } from '../../store/spells';
 // import CreateGrimoreForm from '../CreateGrimoireForm';
-import CreateSpellForm from '../CreateSpellForm';
+//import CreateSpellForm from '../CreateSpellForm';
 // import GrimoireList from '../Grimoires';
 // import GrimoireDetail from '../GrimoireDetail';
 import SpellDetail from '../SpellDetail';
@@ -30,7 +30,7 @@ const GrimoireSpellList = ({grimoireId}) => {
 
     const unfilteredSpellList = spells.spellList
     const spellList = unfilteredSpellList.filter(spell => {
-            console.log(spell.grimoireId,grimoireId)
+            //console.log(spell.grimoireId,grimoireId)
              return spell.grimoireId === +grimoireId
         })
     if (spellList) {

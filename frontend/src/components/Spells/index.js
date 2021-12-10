@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Route } from 'react-router-dom';
-import { getGrimoires } from '../../store/grimoires';
+//import { getGrimoires } from '../../store/grimoires';
 
 import { getSpells } from '../../store/spells';
 import CreateGrimoreForm from '../CreateGrimoireForm';
 import CreateSpellForm from '../CreateSpellForm';
 import GrimoireList from '../Grimoires';
-import GrimoireDetail from '../GrimoireDetail';
+//import GrimoireDetail from '../GrimoireDetail';
 import SpellDetail from '../SpellDetail';
 import "./Spells.css"
 
@@ -33,7 +33,7 @@ const SpellList = () => {
 
             <div className='main-content'>
                 <GrimoireList />
-                
+
                 <div className='button-container'>
                     <CreateSpellForm />
                     <CreateGrimoreForm />

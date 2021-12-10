@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import { deleteGrimoire, editGrimoire } from "../../store/grimoires"
-import GrimoireList from "../Grimoires"
+//mport GrimoireList from "../Grimoires"
 import GrimoireSpellList from "../GrimoireSpellList"
-import SpellList from "../Spells"
+//import SpellList from "../Spells"
 
 import './GrimoireDetail.css'
 

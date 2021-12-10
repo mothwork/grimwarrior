@@ -108,7 +108,7 @@ const spellReducer = (state = initialState, action) => {
                 }
 
             }
-            console.log(index)
+            //console.log(index)
             spellList.splice(index,1)
             const newState = {
                 ...state

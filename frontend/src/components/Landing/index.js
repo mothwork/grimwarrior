@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { NavLink, Link } from 'react-router-dom'
-import { signup } from '../../store/session'
+import { NavLink } from 'react-router-dom'
+//import { signup } from '../../store/session'
 import './Landing.css'
 
 const Landing = () => {

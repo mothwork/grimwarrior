@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+//import grimoire from '../../../../backend/db/models/grimoire';
 
 import { createGrimoire } from '../../store/grimoires';
 
@@ -9,6 +10,7 @@ const CreateGrimoreForm = () => {
     const history = useHistory()
     const [showForm, setShowForm] = useState(false)
     const [name, setName] = useState('')
+    
 
     const reset = () => {
         setName('')
@@ -52,7 +54,8 @@ const CreateGrimoreForm = () => {
                             onChange={(e) => setName(e.target.value)}
                         >
                         </input>
-                        <button type='submit'>Begin new Grimoire</button>
+                        <button disabled={!name.length?true:false}
+                        type='submit'>Begin new Grimoire</button>
                     </form>
                 </div>
             )}

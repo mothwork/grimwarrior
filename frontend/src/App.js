@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 import Spells from "./components/Spells"
 import Landing from "./components/Landing";
 import GrimoireDetail from "./components/GrimoireDetail";
-import GrimoireList from "./components/Grimoires";
+//import GrimoireList from "./components/Grimoires";
 
 function App() {
   const dispatch = useDispatch();
