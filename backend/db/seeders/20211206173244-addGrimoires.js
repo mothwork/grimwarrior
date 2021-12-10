@@ -25,6 +25,27 @@ module.exports = {
         createdAt: new Date()
       },
       {
+        userId:1,
+        name: "Tome of Dusted Whisper",
+        isDefault: false,
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
+        userId:1,
+        name: "Sorrowful Palimpsest of the Wilted Rose",
+        isDefault: false,
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
+        userId:1,
+        name: "Poppidore's Garrulous Leaves",
+        isDefault: false,
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
         userId:2,
         name: "Spell Workbook",
         isDefault: true,
@@ -54,14 +75,28 @@ module.exports = {
       },
       {
         userId:3,
-        name: "The Sapphire Pages of Golmûr",
+        name: "Noodlebook",
         isDefault: false,
         updatedAt: new Date(),
         createdAt: new Date()
       },
       {
         userId:3,
-        name: "Brenna's Illustrious Manuscript",
+        name: "😈 Evil Notes",
+        isDefault: false,
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
+        userId:3,
+        name: "Song Ideas!!!",
+        isDefault: false,
+        updatedAt: new Date(),
+        createdAt: new Date()
+      },
+      {
+        userId:3,
+        name: "girls room moodboard",
         isDefault: false,
         updatedAt: new Date(),
         createdAt: new Date()
