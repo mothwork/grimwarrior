@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import {  useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import { NavLink, Route, useParams } from 'react-router-dom';
-
+import './CreateSpell.css'
 import { createSpell } from '../../store/spells';
 
 const CreateSpellForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showForm, setShowForm] = useState(false)
-    const [title, setTitle] = useState('')
+    let [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
     const reset = () => {
@@ -40,6 +40,13 @@ const CreateSpellForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //console.log('TITLE:', title.length)
+        if (title.length === 0){
+            console.log('inside condtional')
+            setTitle('New Spell')
+            let now = new Date()
+
+            title = 'New Spell Created: '+now.toDateString()        }
 
         const newSpell = {
             title,
@@ -59,9 +66,6 @@ const CreateSpellForm = () => {
 
     return (
         <>
-            <button className='add-spell-button' onClick={!showForm?openForm:closeForm}>
-                {!showForm?'New Spell':'Cancel New Spell'}
-            </button>
             {showForm && (
                 <div className="spell-form-container">
                     <h1>New Spell</h1>
@@ -83,11 +87,14 @@ const CreateSpellForm = () => {
                             rows={10}
 
                         ></textarea>
-                        <button type='submit'>Record Spell in Grimoire</button>
+                        <button className='confirm-add' type='submit'>Create New Spell</button>
 
                     </form>
                 </div>
             )}
+            <button className={!showForm?'add-spell-button':'cancel-add-spell'} onClick={!showForm?openForm:closeForm}>
+                {!showForm?'New Spell':'Cancel New Spell'}
+            </button>
         </>
     )
 }

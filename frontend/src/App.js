@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import Spells from "./components/Spells"
 import Landing from "./components/Landing";
 import GrimoireDetail from "./components/GrimoireDetail";
+import GrimoireList from "./components/Grimoires";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      
+
       {isLoaded && (
 
         <Switch>
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/spells">
             <Spells />
+          </Route>
+          <Route path='/grimoires'>
+            <Spells/>
           </Route>
           <Route path="/login">
             <LoginFormPage />

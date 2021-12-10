@@ -40,9 +40,6 @@ const CreateGrimoreForm = () => {
     }
     return (
         <>
-            <button className='add-spell-button' onClick={!showForm ? openForm : closeForm}>
-                {!showForm ? 'New Grimoire' : 'Cancel New Grimoire'}
-            </button>
             {showForm && (
                 <div className="spell-form-container">
                     <h1>New Grimoire</h1>
@@ -59,6 +56,9 @@ const CreateGrimoreForm = () => {
                     </form>
                 </div>
             )}
+            <button className='add-spell-button' onClick={!showForm ? openForm : closeForm}>
+                {!showForm ? 'New Grimoire' : 'Cancel New Grimoire'}
+            </button>
         </>
     )
 

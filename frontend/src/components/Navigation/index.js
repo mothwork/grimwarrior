@@ -15,14 +15,14 @@ function Navigation({ isLoaded }) {
       <>
       <li>
           <NavLink to="/spells">
-            <button>Spells</button>
+            <button>Home</button>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/grimoires">
             <button>Grimoires</button>
           </NavLink>
-        </li>
+        </li> */}
       <ProfileButton user={sessionUser} />
       </>
     );

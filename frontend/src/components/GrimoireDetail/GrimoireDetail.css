@@ -2,11 +2,33 @@
     margin: 10px;
     display: flex;
     width: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+
 }
 
 .selected-grimoire {
-    margin-left: 20px;
+    /* border: 1px solid red; */
 
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    /* border-bottom: 1px solid yellow; */
+}
+
+.selected-grimoire button {
+    /* margin: 0px;
+    padding: 0px */
+    /* border:none; */
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.backarrow {
+    border: none;
+    border-radius: none;
 }
 
 .selected-grimoire input {
@@ -14,4 +36,11 @@
     line-height: 100%;
 
     font-size: 25px;
+}
+
+.grimoire-detail {
+    /* border-bottom: 1px solid wheat; */
+
+    display: flex;
+    flex-direction: row;
 }

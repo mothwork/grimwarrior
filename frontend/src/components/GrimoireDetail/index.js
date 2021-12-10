@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import { deleteGrimoire, editGrimoire } from "../../store/grimoires"
 import GrimoireList from "../Grimoires"
+import GrimoireSpellList from "../GrimoireSpellList"
+import SpellList from "../Spells"
 
 import './GrimoireDetail.css'
 
@@ -48,24 +50,34 @@ const GrimoireDetail = () => {
             dispatch(editGrimoire(editedGrimoire))
             reset()
             closeForm()
-
+            history.push('/spells')
         }
     }
     const reset = () => {
         setName('')
     }
 
+    const handleBack = async (e) => {
+        e.preventDefault();
+        history.push('/spells')
+    }
+
     return (
         <div className="grimoire-detail-container">
-            <GrimoireList/>
+
+            {/* <GrimoireList/> */}
             <div className='selected-grimoire'>
             {!showEditForm && (
                 <div className="grimoire-detail">
-                    <h1>{grimoire.name}</h1>
-                    <p>spells will go here</p>
+                    <button className='backarrow' onClick={handleBack}>
+                    <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h1 className="small-h1">
+                        {grimoire.name}
+                    </h1>
+
                 </div>
             )}
-
             {showEditForm && (
                 <div className="spell-form-container">
                     <form className="create-spell-form" onSubmit={handleSubmit}>
@@ -97,6 +109,7 @@ const GrimoireDetail = () => {
 
             </div>
             </div>
+                <GrimoireSpellList grimoireId={grimoireId}/>
         </div>
     )
 
