@@ -9,8 +9,8 @@ const CreateGrimoreForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [showForm, setShowForm] = useState(false)
-    const [name, setName] = useState('')
-    
+    let [name, setName] = useState('')
+
 
     const reset = () => {
         setName('')
@@ -28,10 +28,18 @@ const CreateGrimoreForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (name.length === 0 || name.length > 250){
+            //console.log('inside condtional')
+            setName('New Grimoire')
+            let now = new Date()
+
+            name = 'New Grimoire '+now.toDateString()
+        }
 
         const newGrimoire = {
             name
         }
+
 
         if (newGrimoire) {
             dispatch(createGrimoire(newGrimoire))
@@ -54,7 +62,7 @@ const CreateGrimoreForm = () => {
                             onChange={(e) => setName(e.target.value)}
                         >
                         </input>
-                        <button disabled={!name.length?true:false}
+                        <button
                         type='submit'>Begin new Grimoire</button>
                     </form>
                 </div>

@@ -41,7 +41,7 @@ const CreateSpellForm = () => {
         e.preventDefault();
 
         //console.log('TITLE:', title.length)
-        if (title.length === 0){
+        if (title.length === 0 || title.length > 250){
             //console.log('inside condtional')
             setTitle('New Spell')
             let now = new Date()

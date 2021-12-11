@@ -1,10 +1,20 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 const db = require('../../db/models')
 const { Spell, User, Grimoire } = db
 const { restoreUser } = require('../../utils/auth');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
+
+const validateGrimoire = [
+    check('name')
+        .exists({checkFalsy: true})
+        .isLength({min:1})
+        .withMessage('Please provide a grimoire title'),
+    handleValidationErrors
+]
 
 router.get('/', restoreUser, asyncHandler(async (req, res) => {
     const userId = req.user.id
@@ -18,6 +28,7 @@ router.post('/', restoreUser, asyncHandler(async (req, res) => {
     const {
         name
     } = req.body
+
     //console.log('After destructure')
     const newGrimoire = await Grimoire.create({
         name: name,
@@ -58,7 +69,7 @@ router.delete('/:grimoireId', restoreUser, asyncHandler(async function (req, res
         spellObj.grimoireId = defaultGrimoire.id
         await spellObj.save()
     }
-    
+
     // await dependentSpells.save()
     const currGrimoire = await Grimoire.findByPk(grimoireId)
     await currGrimoire.destroy()
