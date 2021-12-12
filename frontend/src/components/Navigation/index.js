@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-      <li>
+        <li>
           <NavLink to="/spells">
             <button>Home</button>
           </NavLink>
@@ -23,14 +23,17 @@ function Navigation({ isLoaded }) {
             <button>Grimoires</button>
           </NavLink>
         </li> */}
-      <ProfileButton user={sessionUser} />
+        <ProfileButton user={sessionUser} />
+        <a href='https://github.com/mothwork/'>
+          <button>Built by Brett Hageft</button>
+        </a>
       </>
     );
   } else {
     sessionLinks = (
       <>
         <li>
-          <DemoUserButton/>
+          <DemoUserButton />
         </li>
         <li>
           <NavLink to="/login">Log In</NavLink>
