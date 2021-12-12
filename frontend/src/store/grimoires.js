@@ -37,14 +37,14 @@ export const getGrimoires = () => async dispatch => {
 }
 
 export const createGrimoire = (newGrimoire) => async dispatch => {
-    console.log('before fetch')
+    //console.log('before fetch')
     const res = await csrfFetch('/api/grimoires/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newGrimoire)
     })
     const grimoire = await res.json()
-    console.log(grimoire)
+    //console.log(grimoire)
     if (res.ok) dispatch(addOneGrimoire(grimoire))
 }
 
@@ -94,7 +94,7 @@ const grimoireReducer = (state = initialState, action)=>{
             const newState = {
                 ...state, [grimoire.id]: grimoire
             }
-            console.log(newState)
+            //console.log(newState)
             return newState;
         }
         case EDIT_ONE: {

@@ -61,6 +61,7 @@ h1 {
 
 .spell-card p {
     background: linear-gradient(270deg, #19deab, #4b81e7);;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-animation: shimmer 0s ease infinite;

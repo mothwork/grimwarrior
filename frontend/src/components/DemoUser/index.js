@@ -7,12 +7,12 @@ import { useHistory } from 'react-router-dom';
 
 
 function DemoUserButton() {
-  const history = useHistory()
+  // const history = useHistory()
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('mithrandir');
   const [password, setPassword] = useState('mellon');
-  const [errors, setErrors] = useState([]);
+  const [ errors, setErrors] = useState([]);
 
   if (sessionUser) return (
     <Redirect to="/spells" />
@@ -32,30 +32,6 @@ function DemoUserButton() {
 
   return (
     <button onClick={handleSubmit}>Demo User</button>
-    // <form className="login-form" onSubmit={handleSubmit}>
-    //     <ul>
-    //     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-    //     </ul>
-    //     <label>
-    //     Username or Email
-    //     <input
-    //         type="text"
-    //         value={credential}
-    //         onChange={(e) => setCredential(e.target.value)}
-    //         required
-    //     />
-    //     </label>
-    //     <label>
-    //     Password
-    //     <input
-    //         type="password"
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         required
-    //     />
-    //     </label>
-    //     <button type="submit">Log In</button>
-    // </form>
   );
 }
 

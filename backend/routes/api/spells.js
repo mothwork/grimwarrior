@@ -28,7 +28,7 @@ router.post('/', restoreUser, asyncHandler(async function (req, res) {
     } = req.body
 
     const defaultGrimoire = await Grimoire.findOne({where:{userId}}, {where:{isDefault:true}})
-    console.log(defaultGrimoire)
+    //console.log(defaultGrimoire)
 
     const newSpell = await Spell.create({
         title,
@@ -54,7 +54,7 @@ router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
     const spellId = spell.id
     //console.log('spellid', spellId)
     const currSpell = await Spell.findByPk(spellId)
-    
+
     await currSpell.destroy()
     res.status = 204
     return res.json(currSpell)
