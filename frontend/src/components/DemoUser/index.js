@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function DemoUserButton() {
-  // const history = useHistory()
+  const history = useHistory()
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('mithrandir');
@@ -19,15 +19,15 @@ function DemoUserButton() {
   );
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    //history.push('/spells')
-    return dispatch(sessionActions.login({ credential, password }))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
+    await dispatch(sessionActions.login({ credential, password }))
+    .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+    history.push('/spells')
   }
 
   return (
