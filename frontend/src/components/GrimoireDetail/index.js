@@ -92,8 +92,6 @@ const GrimoireDetail = () => {
                         </input>
 
                         <button className='edit-delete' type='submit'>Update Grimoire Name</button>
-
-
                     </form>
                 </div>
             )}

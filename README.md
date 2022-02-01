@@ -13,15 +13,15 @@ Built with:
 
 ## Information
 
-### [Feature List] (https://github.com/mothwork/grimwarrior/wiki/Features)
+### [Feature List](https://github.com/mothwork/grimwarrior/wiki/Features)
 
-### [React Components] (https://github.com/mothwork/grimwarrior/wiki/React-Components)
+### [React Components](https://github.com/mothwork/grimwarrior/wiki/React-Components)
 
-### [Frontend Routes] (https://github.com/mothwork/grimwarrior/wiki/Frontend-Routes)
+### [Frontend Routes](https://github.com/mothwork/grimwarrior/wiki/Frontend-Routes)
 
-### [API Routes] (https://github.com/mothwork/grimwarrior/wiki/API-Routes)
+### [API Routes](https://github.com/mothwork/grimwarrior/wiki/API-Routes)
 
-### [Redux Store tree] (https://github.com/mothwork/grimwarrior/wiki/Redux-Store-Tree)
+### [Redux Store tree](https://github.com/mothwork/grimwarrior/wiki/Redux-Store-Tree)
 
 ## Technical Implementation
 
