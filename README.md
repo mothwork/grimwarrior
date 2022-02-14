@@ -11,6 +11,12 @@ Built with:
 * Sequelize - ORM
 * Express - Backend
 
+## Screenshots
+### Splash Page
+![Splash](https://user-images.githubusercontent.com/59124348/153916560-62166f87-a5c7-47f8-a696-729ca5293409.png)
+### Inside view
+![Inside](https://user-images.githubusercontent.com/59124348/153948975-76254a2a-0a8c-4f46-9e59-566afa92c91b.png)
+
 ## Information
 
 ### [Feature List](https://github.com/mothwork/grimwarrior/wiki/Features)
