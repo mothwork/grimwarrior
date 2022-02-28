@@ -1,9 +1,15 @@
 .confirm-add {
     border: none;
     background-color: #2e422e;
+    margin: 10px;
 }
 
 .cancel-add-spell {
     border: none;
     background-color: #422e2e;
+    margin: 10px;
+}
+
+.create-grimoire-form input {
+    line-height: 20px;
 }
