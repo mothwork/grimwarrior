@@ -14,6 +14,10 @@ button {
 
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .nav-bar{
     width: 100vw;
     /* height: 20%vw; */
@@ -49,4 +53,8 @@ button {
     flex-direction: row;
     justify-content: left;
 
+}
+
+.link-div {
+    margin-left: 10px;
 }

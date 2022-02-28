@@ -24,9 +24,14 @@ function Navigation({ isLoaded }) {
           </NavLink>
         </li> */}
         <ProfileButton user={sessionUser} />
-        <a href='https://github.com/mothwork/'>
-          <button>Built by Brett Hageft</button>
-        </a>
+
+        <div className='link-div'>Built by Brett Hageft
+        <a href='https://github.com/mothwork/'><button>Github</button></a>
+        <a href='https://linkedin.com/in/mothwork'><button>LinkedIn</button></a>
+        </div>
+
+
+
       </>
     );
   } else {
@@ -62,7 +67,9 @@ function Navigation({ isLoaded }) {
         {isLoaded && sessionLinks}
 
       </ul>
-      <h2>GrimWarrior</h2>
+      <NavLink to='/'>
+        <h2>GrimWarrior</h2>
+      </NavLink>
     </div>
   );
 }

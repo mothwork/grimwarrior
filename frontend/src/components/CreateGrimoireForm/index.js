@@ -53,7 +53,7 @@ const CreateGrimoreForm = () => {
             {showForm && (
                 <div className="spell-form-container">
                     <h1>New Grimoire</h1>
-                    <form className="create-spell-form" onSubmit={handleSubmit}>
+                    <form className="create-spell-form grimoire-form" onSubmit={handleSubmit}>
                         <input
                             name='title'
                             type='text'
@@ -63,7 +63,7 @@ const CreateGrimoreForm = () => {
                         >
                         </input>
                         <button
-                        type='submit'>Begin new Grimoire</button>
+                        type='submit' class='confirm-add'>Begin new Grimoire</button>
                     </form>
                 </div>
             )}
