@@ -10,9 +10,12 @@
     flex-wrap: nowrap;
     height: 1000px;
     overflow: scroll;
-    border-left: 1px solid wheat;
+    /* border-left: 1px solid wheat; */
+    border-right: 1px solid wheat;
     padding-left: 5px;
     align-items: center;
+
+    margin-right: 10px;
 
 }
 

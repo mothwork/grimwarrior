@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Route} from 'react-router-dom';
+import CreateGrimoreForm from '../CreateGrimoireForm';
 
 import {getGrimoires} from '../../store/grimoires'
 import './Grimoires.css'
@@ -20,7 +21,8 @@ const GrimoireList = () => {
     if (grimoireList) {
         return (
             <div className='grimoires-container'>
-                <h1>Grimoires</h1>
+                <h1>All Grimoires</h1>
+                <CreateGrimoreForm/>
                 {grimoireList.map(grimoire => {
                     return (
                         <NavLink key={grimoire.id} to={`/grimoires/${grimoire.id}`}>

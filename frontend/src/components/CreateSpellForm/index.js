@@ -59,7 +59,7 @@ const CreateSpellForm = ({grimoireId}) => {
 
             reset()
             closeForm()
-            history.push(`/spells/`)
+            // history.push(`/spells/`)
         }
 
     }
@@ -67,6 +67,7 @@ const CreateSpellForm = ({grimoireId}) => {
 
     return (
         <>
+             <div>
             {showForm && (
                 <div className="spell-form-container">
                     <h1>New Spell</h1>
@@ -96,6 +97,7 @@ const CreateSpellForm = ({grimoireId}) => {
             <button className={!showForm?'add-spell-button':'cancel-add-spell'} onClick={!showForm?openForm:closeForm}>
                 {!showForm?'New Spell':'Cancel New Spell'}
             </button>
+           </div>
         </>
     )
 }
