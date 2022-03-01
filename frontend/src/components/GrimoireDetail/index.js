@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
-import { deleteGrimoire, editGrimoire } from "../../store/grimoires"
+import { deleteGrimoire, editGrimoire, getGrimoires } from "../../store/grimoires"
 //mport GrimoireList from "../Grimoires"
 import GrimoireSpellList from "../GrimoireSpellList"
 //import SpellList from "../Spells"
+import CreateSpellForm from "../CreateSpellForm"
 
 import './GrimoireDetail.css'
 
@@ -14,13 +15,15 @@ const GrimoireDetail = () => {
     const { grimoireId } = useParams()
 
     const grimoire = useSelector(state => state.grimoire[grimoireId])
+    const grimName = grimoire?.name
 
     const [showEditForm, setShowEditForm] = useState(false)
-    const [name, setName] = useState(grimoire.name)
+    const [name, setName] = useState(grimName)
 
     useEffect(() => {
-        setName(grimoire.name)
-    }, [grimoire.name])
+        setName(grimName)
+        dispatch(getGrimoires())
+    }, [dispatch,getGrimoires,grimName])
 
     const handleDeleteClick = () => {
         const confirmed = window.confirm('Are you sure you wish to delete this Grimoire? \n\nAll of the spells contained within the deleted grimoire will be sent to your Spell Workbook.')
@@ -61,7 +64,7 @@ const GrimoireDetail = () => {
         e.preventDefault();
         history.push('/spells')
     }
-
+    if (grimoire) {
     return (
         <div className="grimoire-detail-container">
 
@@ -107,9 +110,16 @@ const GrimoireDetail = () => {
 
             </div>
             </div>
+            <div className="main-content">
                 <GrimoireSpellList grimoireId={grimoireId}/>
+                <div className="button-container">
+                <CreateSpellForm grimoireId={grimoireId}/>
+                </div>
+                </div>
         </div>
     )
+            }
+    return (null)
 
 }
 

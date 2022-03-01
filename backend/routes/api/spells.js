@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-//const { where } = require('sequelize/types');
+
 const db = require('../../db/models')
 const { Spell, User, Grimoire } = db
 const { restoreUser } = require('../../utils/auth');
@@ -13,8 +13,7 @@ router.get('/', restoreUser, asyncHandler(async function (req, res) {
     const { user } = req;
     const userId = user.id
     const currUser = await User.findByPk(userId, { include: "Spells" })
-    //const grimoires = await Grimoire.findAll({where: {userId}}) Grimoire test
-    //console.log(grimoires)
+
     return res.json(currUser.Spells) //Returns Array in res
 }))
 
@@ -24,19 +23,19 @@ router.post('/', restoreUser, asyncHandler(async function (req, res) {
     const userId = id
     const {
         title,
-        content
+        content,
+        grimoireId
     } = req.body
 
     const defaultGrimoire = await Grimoire.findOne({where:{userId}}, {where:{isDefault:true}})
-    //console.log(defaultGrimoire)
 
     const newSpell = await Spell.create({
         title,
         content,
         userId: id,
-        grimoireId: defaultGrimoire.id //TODO FIX THIS so it isnt hardcoded
+        grimoireId
     })
-    ///console.log(newSpell.dataValues.id)
+
     return res.redirect(`${req.baseUrl}/${newSpell.dataValues.id}`)
 }))
 
@@ -48,11 +47,8 @@ router.get('/:spellId', restoreUser, asyncHandler(async function (req, res) {
 }))
 
 router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
-    //const {spellId} = req.params
     const spell = req.body
-    //onsole.log('Spell:',spell)
     const spellId = spell.id
-    //console.log('spellid', spellId)
     const currSpell = await Spell.findByPk(spellId)
 
     await currSpell.destroy()
@@ -61,14 +57,13 @@ router.delete('/:spellId', restoreUser, asyncHandler(async function (req, res) {
 }))
 
 router.put('/:spellId', restoreUser, asyncHandler(async function (req,res){
-    //const {spellId} = req.params
     const spell = req.body
-    //onsole.log('Spell:',spell)
     const spellId = spell.id
-    //console.log('spellid', spellId)
     const currSpell = await Spell.findByPk(spellId)
+
     currSpell.title = spell.title
     currSpell.content = spell.content
+
     await currSpell.save()
     res.status = 200
     return res.json(currSpell)

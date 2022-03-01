@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './CreateSpell.css'
 import { createSpell } from '../../store/spells';
 
-const CreateSpellForm = () => {
+const CreateSpellForm = ({grimoireId}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showForm, setShowForm] = useState(false)
@@ -50,7 +50,8 @@ const CreateSpellForm = () => {
 
         const newSpell = {
             title,
-            content
+            content,
+            grimoireId
         }
 
         if (newSpell) {
@@ -58,7 +59,7 @@ const CreateSpellForm = () => {
 
             reset()
             closeForm()
-            history.push(`/spells/`)
+            // history.push(`/spells/`)
         }
 
     }
@@ -66,6 +67,7 @@ const CreateSpellForm = () => {
 
     return (
         <>
+             <div>
             {showForm && (
                 <div className="spell-form-container">
                     <h1>New Spell</h1>
@@ -80,7 +82,7 @@ const CreateSpellForm = () => {
                         </input>
                         <textarea
                             name="content"
-                            placeholder='Begin the work of trascribing the deepest mysteries...'
+                            placeholder='Begin the work of transcribing the deepest mysteries...'
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             cols={50}
@@ -95,6 +97,7 @@ const CreateSpellForm = () => {
             <button className={!showForm?'add-spell-button':'cancel-add-spell'} onClick={!showForm?openForm:closeForm}>
                 {!showForm?'New Spell':'Cancel New Spell'}
             </button>
+           </div>
         </>
     )
 }

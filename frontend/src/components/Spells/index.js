@@ -34,12 +34,9 @@ const SpellList = () => {
             <div className='main-content'>
                 <GrimoireList />
 
-                <div className='button-container'>
-                    <CreateSpellForm />
-                    <CreateGrimoreForm />
-                </div>
+                
                 <div className="spell-container">
-                    <h1 className='header'>Spells</h1>
+                    <h1 className='header'>All Spells</h1>
                     {spellList.map(spell => {
                         return (
 
