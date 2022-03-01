@@ -10,6 +10,7 @@ import { getSpells } from '../../store/spells';
 // import GrimoireDetail from '../GrimoireDetail';
 import SpellDetail from '../SpellDetail';
 // import "./Spells.css"
+import CreateSpellForm from '../CreateSpellForm';
 
 const GrimoireSpellList = ({grimoireId}) => {
     const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const GrimoireSpellList = ({grimoireId}) => {
                 </div>
                 <div className="spell-container">
                     <h1 className='header'>Spells</h1>
+                    
                     {spellList.map(spell => {
                         return (
 

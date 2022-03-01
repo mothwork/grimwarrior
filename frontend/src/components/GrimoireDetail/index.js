@@ -111,6 +111,7 @@ const GrimoireDetail = () => {
             </div>
             </div>
             <div className="main-content">
+
                 <GrimoireSpellList grimoireId={grimoireId}/>
                 <div className="button-container">
                 <CreateSpellForm grimoireId={grimoireId}/>
