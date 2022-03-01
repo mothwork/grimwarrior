@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './CreateSpell.css'
 import { createSpell } from '../../store/spells';
 
-const CreateSpellForm = () => {
+const CreateSpellForm = ({grimoireId}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showForm, setShowForm] = useState(false)
@@ -50,7 +50,8 @@ const CreateSpellForm = () => {
 
         const newSpell = {
             title,
-            content
+            content,
+            grimoireId
         }
 
         if (newSpell) {
@@ -80,7 +81,7 @@ const CreateSpellForm = () => {
                         </input>
                         <textarea
                             name="content"
-                            placeholder='Begin the work of trascribing the deepest mysteries...'
+                            placeholder='Begin the work of transcribing the deepest mysteries...'
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             cols={50}

@@ -5,6 +5,7 @@ import { deleteGrimoire, editGrimoire } from "../../store/grimoires"
 //mport GrimoireList from "../Grimoires"
 import GrimoireSpellList from "../GrimoireSpellList"
 //import SpellList from "../Spells"
+import CreateSpellForm from "../CreateSpellForm"
 
 import './GrimoireDetail.css'
 
@@ -107,7 +108,10 @@ const GrimoireDetail = () => {
 
             </div>
             </div>
+            <div className="main-content">
                 <GrimoireSpellList grimoireId={grimoireId}/>
+                <CreateSpellForm grimoireId={grimoireId}/>
+                </div>
         </div>
     )
 

@@ -13,3 +13,7 @@
 .create-grimoire-form input {
     line-height: 20px;
 }
+
+textarea {
+    font-family: sans-serif;
+}
