@@ -3,7 +3,7 @@ GrimWarrior is a clone of Evernote: built for the discerning Wizard who wishes t
 
 In this clone, notes are called spells and notebooks are called Grimoires.
 
-Live Site: [GrimWarrior] (http://grimwarrior.herokuapp.com)
+Live Site: [GrimWarrior](http://grimwarrior.herokuapp.com)
 
 Built with:
 * React.js - Frontend
